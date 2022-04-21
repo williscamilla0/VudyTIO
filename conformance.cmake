@@ -11,8 +11,6 @@ add_custom_command(
   OUTPUT ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto3.pb.cc
          ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto2.pb.cc
   DEPENDS ${protobuf_PROTOC_EXE} ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto3.proto
-          ${protobuf_PROTOC_EXE} ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto2.proto
-  COMMAND ${protobuf_PROTOC_EXE} ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto3.proto
                  ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto2.proto
       --proto_path=${protobuf_SOURCE_DIR}/src
       --cpp_out=${protobuf_SOURCE_DIR}/src
@@ -34,7 +32,6 @@ add_executable(conformance_cpp
   ${protobuf_SOURCE_DIR}/conformance/conformance.pb.cc
   ${protobuf_SOURCE_DIR}/conformance/conformance_cpp.cc
   ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto2.pb.cc
-  ${protobuf_SOURCE_DIR}/src/google/protobuf/test_messages_proto3.pb.cc
 )
 
 target_include_directories(
